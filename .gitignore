@@ -1,0 +1,20 @@
+# Ignore data folders
+data/
+temp/
+cloudless_data/
+cloudy_data/
+
+# Ignore system files
+.DS_Store
+
+# Ignore Jupyter checkpoints
+.ipynb_checkpoints/
+
+# Ignore virtual environments
+venv/
+.env/
+
+# Ignore large files
+*.tif
+*.h5
+*.ckpt
