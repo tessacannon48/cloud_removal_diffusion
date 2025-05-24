@@ -1,5 +1,6 @@
 
 # Cloud Removal from Sentinel-2 Imagery using Conditional Diffusion Models
+![alt text](https://github.com/tessacannon48/cloud_removal_diffusion/blob/main/DDPM_diagram.jpg)
 
 ## About The Project
 
@@ -132,7 +133,19 @@ Out of 29 initial matches, **13 pairs** were retained after manual visual inspec
 
 ## Environmental Impact Estimation
 
----
+Although this project aims to utilize AI to advance environmental technology and sustainability initiatives, it is important to recognize that there is also an environmental cost to using and building AI. Below I outline the main sources of emissions or environmental costs produced by this project, from the collection of data to the model development process. 
+
+- Environmental Costs of Data Acquisition (Sentinel-2 Satellite)
+  - Satellites Used: ESA Sentinel-2
+- Model Training Impact
+  - Individual model training time: 10k model: 30 minutes, 20k model: 2 hours, full model: 7.5 hours
+  - Cumulative estimated training time (including time for debugging + retraining): 24 hours of training
+  - Hardware used: NVIDIA GeForce RTX 4090 GPUs + Apple M3 10-Core GPU
+  - Emissions Estimate:
+  - Water Usage Estimate: 
+- Generative AI Usage
+  - Generative Large Language Models (ChatGPT) were used as a resource for various tasks in this project, such as for debugging and cleaning code. I estimate that I asked about 30 queries to ChatGPT, generating ____ of CO2, according to _____. 
+
 
 ## Acknowledgements
 
