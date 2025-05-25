@@ -58,7 +58,7 @@ Image pairs are matched by:
 - Temporal proximity (±30 days)
 - Preference for closest match if multiple options exist
 
-Out of 29 initial matches, **13 pairs** were retained after manual visual inspection to ensure cloud validity and landscape consistency.
+Out of 29 initial matches, **13 pairs** were retained after manual visual inspection to ensure cloud mask validity and landscape consistency.
 
 ---
 
@@ -119,24 +119,27 @@ Out of 29 initial matches, **13 pairs** were retained after manual visual inspec
 
 ### Computational Constraints
 - A **shallow model** was used to control training time and GPU memory.
-- **Epochs and architecture depth** were limited to reduce resource usage, likely sacrificing reconstruction fidelity.
+- **Epochs and architecture depth** were limited to reduce computational complexity, likely sacrificing reconstruction accuracy. 
 
 ---
 
 ## Future Work
 
+- Fine-tune the model architecture and set of hyperparameters. Experiment with deeper, more expressive UNet backbones.
 - Integrate radiometric correction or SAR data to reduce lighting inconsistencies.
 - Develop better cloud mask labeling methods or integrate human-in-the-loop annotation.
-- Experiment with deeper, more expressive UNet backbones if computational resources allow.
-- Explore temporal modeling (e.g., clear image before/after) to improve predictions.
 - Expand dataset geographically and temporally for greater generalization.
 
 ## Environmental Impact Estimation
+
+The techniques developed in this project could be used to enhance a variety of sustainable initiatives involving Earth observation. Removing clouds from satellite imagery using diffusion models significantly enhances the quality and usability of Earth observation data, which is crucial for environmental monitoring and management. Cloud cover can obscure critical information in satellite images, hindering accurate analysis of land use, vegetation health, and water resources. By employing advanced cloud removal techniques, researchers can obtain clearer images, leading to more precise assessments of environmental conditions. This improved clarity aids in tracking deforestation, monitoring agricultural practices, and managing natural disasters more effectively. Consequently, the application of diffusion models for cloud removal contributes to more informed decision-making in environmental conservation and sustainable resource management.
 
 Although this project aims to utilize AI to advance environmental technology and sustainability initiatives, it is important to recognize that there is also an environmental cost to using and building AI. Below I outline the main sources of emissions or environmental costs produced by this project, from the collection of data to the model development process. 
 
 - Environmental Costs of Data Acquisition (Sentinel-2 Satellite)
   - Satellites Used: ESA Sentinel-2
+    -  Images downloaded: 29
+  - Estimated lifetime impact of launching Sentinel-2: 
 - Model Training Impact
   - Individual model training time: 10k model: 30 minutes, 20k model: 2 hours, full model: 7.5 hours
   - Cumulative estimated training time (including time for debugging + retraining): 24 hours of training
@@ -146,10 +149,11 @@ Although this project aims to utilize AI to advance environmental technology and
 - Generative AI Usage
   - Generative Large Language Models (ChatGPT) were used as a resource for various tasks in this project, such as for debugging and cleaning code. I estimate that I asked about 30 queries to ChatGPT, generating ____ of CO2, according to _____. 
 
+The environmental costs of employing this project could be reduced through more careful debugging and construction prior to full training to reduce time spent on retraining models, as well as reduced reliance on generative AI for debugging. To monitor and estimate the carbon emissions from the code, Python packages like CodeCarbon (found at https://github.com/mlco2/codecarbon) could be employed prior to development in future iterations of this project. Overall, however, the environmental costs of developing this project alone are minimal based on the impact estimation above. 
 
 ## Acknowledgements
 
 - This project was completed as part of an open-ended final coursework for GEOL0069: Artificial Intelligence for Earth Observation taught by Dr. Michel Tsamados
-- Some ESA Query functions provided by Dr. Michel Tsamados, Weibin Chen, Connor Nelson
+- Some ESA Query functions used in data retrieval were provided by Dr. Michel Tsamados, Weibin Chen, Connor Nelson
 - Satellite imagery provided by [Copernicus Sentinel-2](https://sentinel.esa.int/web/sentinel/missions/sentinel-2) via ESA Copernicus Data Space Ecosystem.
 - Diffusion model structure inspired by [Ho et al., 2020](https://arxiv.org/abs/2006.11239).
