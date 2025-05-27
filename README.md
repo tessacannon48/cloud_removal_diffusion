@@ -80,6 +80,7 @@ Out of 29 initial matches, **13 pairs** were retained after manual visual inspec
 
 1. **Patch Extraction:**
    - Cloudy images are segmented using a 256×256 sliding window.
+   - Only 4 spectral bands are kept: RBG + NIR (10m)
    - Selected only those patches where **cloud coverage is 5–30%**, ensuring good coverage and variability for learning.
 
 2. **Output:**
@@ -124,7 +125,7 @@ Out of 29 initial matches, **13 pairs** were retained after manual visual inspec
 
 ## Limitations
 
-While there is evidence that the full model is able to generate some accurate structure from the clear images prompted by the cloudy image, the images being generated are currently blanketed in a layer of noise. Therefore, additional training and tuning is required to achieve accurate reconstructions. Please see the attached video for an in-depth discussion of the modeling results. Below I outline several limitations which are contributing to the inaccuracy of the reconstructions: 
+While there is evidence that the full model is able to generate some accurate structure from the clear images prompted by the cloudy image, the images being generated are currently blanketed in a layer of noise. Therefore, additional training and tuning is required to achieve accurate reconstructions. Please see the attached video above for an in-depth discussion of the modeling results. Below I outline several limitations which are contributing to the inaccuracy of the reconstructions: 
 
 ### Data Limitations
 - **Clear ≠ Ground Truth:** Lighting conditions vary due to clouds, so even cloud-free images don’t perfectly match the same scene under cloud cover.
@@ -140,6 +141,7 @@ While there is evidence that the full model is able to generate some accurate st
 ## Future Work
 
 - Fine-tune the model architecture and set of hyperparameters. Experiment with deeper, more expressive UNet backbones.
+- Perform ablation studies and model comparisons to effectively evaluate DDPMs.
 - Integrate radiometric correction or SAR data to reduce lighting inconsistencies.
 - Develop better cloud mask labeling methods or integrate human-in-the-loop annotation.
 - Expand dataset geographically and temporally for greater generalization.
@@ -154,7 +156,7 @@ Although this project aims to utilize AI to advance environmental technology and
 
 **Model Training (24 h on GPUs):** The project’s AI model training phase (approximately 24 hours split between an NVIDIA RTX 4090 and Apple M3 10-core GPU) also incurred a measurable environmental impact. According to research on carbon emissions from deep learning conducted at the University of Massachusetts Amherst, the Transformer base model with 65 million parameters—the smallest model evaluated by the researchers—emitted 0.01 tonnes of CO₂ after 12 hours of training across 8 NVIDIA P100 GPUs [[3]](#3). In contrast, my model was significantly smaller, with only 3,452,868 parameters, and was trained for a cumulative total of 24 hours on a single GPU at a time. Although it is difficult to make a direct comparison with this study, it is reasonable to assume that my model consumed significantly less energy than the Transformer base model. Therefore, while the environmental impact is worth acknowledging, the carbon emissions from my model are likely to be substantially lower than the UK’s average per-person annual emission of 10 tonnes of CO2 [[4]](#4). 
 
-**Generative AI Usage (ChatGPT Queries):** Lastly, the interactive use of a generative AI (approximately 30 ChatGPT queries) contributed a relatively minor carbon emission in this project. Running large language models is computationally intensive, but each text query is short-lived; estimates put the energy for one ChatGPT query on the order of only a few watt-hours, corresponding to roughly 2–5 g of CO2 per query [[5]](#5). Although generative AI requests use several times more energy than a standard Google search (≈0.2 g CO2 per query), the ~30 queries would have emitted approximately 100 g of CO2, a trivial amount in the context of the overall project. Altogether, the dominant environmental impacts of the project stem from the satellite infrastructure and model training phases, whereas the direct emissions from a handful of AI queries are comparatively insignificant.
+**Generative AI Usage (ChatGPT Queries):** Lastly, the interactive use of a generative AI (approximately 30 ChatGPT queries) contributed a relatively minor carbon emission in this project. Running large language models is computationally intensive, but each text query is short-lived; estimates put the energy for one ChatGPT query on the order of only a few watt-hours, corresponding to roughly 2–5 g of CO2 per query [[5]](#5). Although generative AI requests use several times more energy than a standard Google search (≈0.2 g CO2 per query), the ~30 queries would have emitted approximately 100 g of CO2, a trivial amount in the context of the overall project. Altogether, the dominant environmental impacts of the project stem from the satellite infrastructure and model training phases, whereas the direct emissions from a handful of AI queries are comparatively insignificant. 
 
 The environmental costs of employing this project could be reduced through more careful debugging and construction prior to full training to reduce time spent on retraining models, as well as reduced reliance on generative AI for debugging. To monitor and estimate the carbon emissions from the code, Python packages like CodeCarbon (found at https://github.com/mlco2/codecarbon) could be employed prior to development in future iterations of this project. Overall, however, the environmental costs of developing this project alone are minimal based on the impact estimation above. 
 
