@@ -4,6 +4,10 @@
 
 ## About The Project
 
+### YouTube Tutorial
+
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/0CCpH0Z3Mrw/0.jpg)](https://www.youtube.com/watch?v=0CCpH0Z3Mrw)
+
 ### Goal
 The goal of this project is to **remove clouds from Sentinel-2 satellite imagery** using a **Conditional Denoising Diffusion Probabilistic Model (DDPM)** with a shallow UNet architecture. The model is trained to reconstruct cloud-free scenes conditioned on their cloudy counterparts.
 
