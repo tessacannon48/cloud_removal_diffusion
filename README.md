@@ -177,7 +177,7 @@ https://www.live-eo.com/article/how-green-is-satellite-monitoring-lets-do-the-ma
 https://arxiv.org/pdf/1906.02243
 
 <a id="4">[4]</a> 
-(https://www.carbonindependent.org/23.html)
+https://www.carbonindependent.org/23.html
 
 <a id="5">[5]</a> 
 https://smartly.ai/blog/the-carbon-footprint-of-chatgpt-how-much-co2-does-a-query-generate
